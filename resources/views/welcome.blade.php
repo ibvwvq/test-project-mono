@@ -14,6 +14,7 @@
             <th>ФИО</th>
             <th>Пол</th>
             <th>Телефон</th>
+            <th>Адрес</th>
             <th></th>
             <th></th>
         </tr>
@@ -24,6 +25,7 @@
                 <th>{{$client->fioClient}}</th>
                 <th>{{$client->genderClient}}</th>
                 <th>{{$client->phoneClient}}</th>
+                <th>{{$client->addressClient}}</th>
                 <th>
 {{--                    <a class="btn btn-outline-primary" href="{{route('edit-client',$client->id)}}" >Редактировать</a>--}}
                 </th>
