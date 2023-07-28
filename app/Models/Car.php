@@ -10,4 +10,7 @@ class Car extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $fillable  = ['markCar','modelCar','colorCar','numberCar','availabilityCar'];
+    protected $guarded = ['client_id'];
 }
