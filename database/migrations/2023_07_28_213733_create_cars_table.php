@@ -15,7 +15,16 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('markCar');
+            $table->string('modelCar');
+            $table->string('colorCar');
+            $table->string('numberCar');
+            $table->boolean('availabilityCar');
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->index('client_id','car_client_idx');
+
+            $table->foreign('client_id','car_client_fk')->on('clients')->references('id');
+
         });
     }
 
