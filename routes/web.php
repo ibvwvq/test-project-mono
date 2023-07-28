@@ -16,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class,'getClients'])->name('get-clients');
 
-Route::get('/home', [MainController::class,'getClients'])->name('get-clients');
+Route::get('/home', [MainController::class,'get_clients'])->name('get-clients');
+
+Route::get('/add-client', [MainController::class,'add_client'])->name('get-clients');
+
 

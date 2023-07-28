@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
-    public function getClients(){
+    public function get_clients(){
         $clients = DB::table('clients')->paginate(3);
         return view('welcome',['clients'=>$clients]);
     }
+
+
 }
