@@ -26,7 +26,7 @@ class ClientRequest extends FormRequest
         return [
             'fioClient' =>'required|min:3',
             'genderClient' => 'required',
-            'phoneClient' => 'required|unique:App\Models\Client,phoneClient'
+            'phoneClient' => 'required|numeric|unique:App\Models\Client,phoneClient'
         ];
     }
 }
