@@ -13,7 +13,7 @@ class ClientRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'fioClient' =>'required|min:3',
+            'genderClient' => 'required',
+            'phoneClient' => 'required|unique:App\Models\Client,phoneClient'
         ];
     }
 }
