@@ -24,7 +24,11 @@ class CarRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'markCar'=>'required',
+            'modelCar'=> 'required',
+            'colorCar'=>'required',
+            'numberCar'=>'required|unique:App\Models\Car,numberCar',
+            'availabilityCar' => 'boolean'
         ];
     }
 }
