@@ -27,7 +27,6 @@ class MainController extends Controller
         $client->phoneClient = $clientRequest->input('phoneClient');
         $client->addressClient = $clientRequest->input('addressClient');
         $client->save();
-
        if($client->save()){
            $car->markCar = $carRequest->input('markCar');
            $car->modelCar = $carRequest->input('modelCar');
@@ -38,12 +37,10 @@ class MainController extends Controller
            }else{
                $car->availabilityCar =  1;
            }
-
            $car->client_id = $client->id;
-
            $car->save();
        }
 
-        return redirect()->route('welcome');
+        return redirect()->route('get-clients');
     }
 }
