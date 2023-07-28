@@ -11,5 +11,4 @@ class Client extends Model
 
     public $timestamps = false;
 
-    protected $fillable  = ['fioClient','genderClient','phoneClient','addressClient'];
 }

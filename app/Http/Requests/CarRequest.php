@@ -27,9 +27,7 @@ class CarRequest extends FormRequest
             'markCar'=>'required',
             'modelCar'=> 'required',
             'colorCar'=>'required',
-            'numberCar'=>'required|unique:App\Models\Car,numberCar',
-            'availabilityCar' => 'boolean',
-            'client_id' => 'required'
+            'numberCar'=>'required|unique:App\Models\Car,numberCar'
         ];
     }
 }

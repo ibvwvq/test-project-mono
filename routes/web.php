@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MainController::class,'getClients'])->name('get-clients');
+Route::get('/', [MainController::class,'get_clients']);
 
 Route::get('/home', [MainController::class,'get_clients'])->name('get-clients');
 
-Route::get('/add-client', [MainController::class,'add_client'])->name('get-clients');
+Route::get('/add-client', function (){
+   return view('/add-client');
+});
+
+
+Route::post('/add-client/check', [MainController::class,'add_client'])->name('add-client');
 
 

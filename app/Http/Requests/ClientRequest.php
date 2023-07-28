@@ -24,9 +24,10 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'fioClient' =>'required|min:3',
+            'fioClient' => 'required|min:3',
             'genderClient' => 'required',
-            'phoneClient' => 'required|numeric|unique:App\Models\Client,phoneClient'
+            'phoneClient' => 'required|numeric|unique:App\Models\Client,phoneClient',
+            'addressClient' => 'string'
         ];
     }
 }

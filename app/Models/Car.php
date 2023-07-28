@@ -12,5 +12,4 @@ class Car extends Model
     public $timestamps = false;
 
     protected $fillable  = ['markCar','modelCar','colorCar','numberCar','availabilityCar'];
-    protected $guarded = ['client_id'];
 }

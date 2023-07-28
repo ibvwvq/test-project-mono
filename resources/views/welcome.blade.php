@@ -7,7 +7,7 @@
 
 
 @section('content')
-{{--    <a href="{{ route('add-client') }}" class="btn btn-primary m-2">Добавить клиента</a>--}}
+    <a href="/add-client" class="btn btn-primary m-2">Добавить клиента</a>
     <table class="table table-bordered">
         <thead>
         <tr>
