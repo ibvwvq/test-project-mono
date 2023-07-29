@@ -21,7 +21,6 @@ class CreateClientsTable extends Migration
             $table->text('addressClient');
         });
     }
-
     /**
      * Reverse the migrations.
      *

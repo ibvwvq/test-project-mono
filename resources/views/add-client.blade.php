@@ -40,7 +40,7 @@
         <input type="text" name="colorCar" id="colorCar" placeholder="Введите цвет"
                class="form-control"><br>
 
-        <input type="text" name="numberCar" id="phoneClient" placeholder="Введите гос. номер"
+        <input type="text" name="numberCar" id="numberCar" placeholder="Введите гос. номер"
                class="form-control"><br>
          <p class="m-2">
              Укажите, есть ли машина на автостоянке
@@ -50,3 +50,4 @@
         <button class="btn btn-success m-2" type="submit">Отправить</button>
     </form>
 @endsection
+
