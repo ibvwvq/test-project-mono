@@ -59,7 +59,7 @@ class MainController extends Controller
         return redirect()->route('get-clients')->with('Success','ItsOk');
     }
 
-    public function edit_car_check($id,CarRequest $carRequest)
+    public function edit_car_check($id,CarRequest $carRequest): \Illuminate\Http\RedirectResponse
     {
         if ($carRequest->input('availabilityCar') == null) {
              DB::table('cars')
@@ -117,10 +117,15 @@ class MainController extends Controller
         return redirect()->route('get-clients')->with('Success','ItsOk');
     }
 
-    public function delete_client_check($id)
+    public function delete_client_check($id): \Illuminate\Http\RedirectResponse
     {
-        $client =  DB::table('clients')->where('id', '=', $id)->delete();
+        DB::table('clients')->where('id', '=', $id)->delete();
         return redirect()->route('get-clients')->with('Success','ItsOk');
+    }
 
+    public function delete_car_check($id): \Illuminate\Http\RedirectResponse
+    {
+        DB::table('cars')->where('id', '=', $id)->delete();
+        return redirect()->route('get-clients')->with('Success','ItsOk');
     }
 }

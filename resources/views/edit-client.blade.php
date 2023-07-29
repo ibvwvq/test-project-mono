@@ -49,7 +49,7 @@
             @if(!$car->availabilityCar)
                 <input class="m-2" type="checkbox" id="availabilityCar" name="availabilityCar"><br>
             @endif
-
+            <a class="btn btn-danger m-2" type="submit"  href="{{route('delete-car-check',$car->id)}}">Удалить</a>
             <button class="btn btn-success m-2" type="submit">Сохранить</button>
         </form>
     @endforeach

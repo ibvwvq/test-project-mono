@@ -34,4 +34,6 @@ Route::post('/add-car/{id}/check', [MainController::class,'add_car_check'])->nam
 
 Route::get('/delete-client/{id}/check', [MainController::class,'delete_client_check'])->name('delete-client-check');
 
+Route::get('/delete-car/{id}/check', [MainController::class,'delete_car_check'])->name('delete-car-check');
+
 

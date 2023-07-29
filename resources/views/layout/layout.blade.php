@@ -16,12 +16,6 @@
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <span class="fs-4">Автостоянка</span>
     </a>
-
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link">Клиенты</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Автомобили</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Отзывы</a></li>
-    </ul>
 </header>
 
 
