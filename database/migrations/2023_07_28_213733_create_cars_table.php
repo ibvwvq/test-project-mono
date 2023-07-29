@@ -23,7 +23,10 @@ class CreateCarsTable extends Migration
             $table->unsignedBigInteger('client_id')->nullable();
             $table->index('client_id','car_client_idx');
 
-            $table->foreign('client_id','car_client_fk')->on('clients')->references('id');
+            $table->foreign('client_id','car_client_fk')
+                ->on('clients')
+                ->references('id')
+                ->onDelete('cascade');;
 
         });
     }

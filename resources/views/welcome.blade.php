@@ -29,7 +29,7 @@
                     <a class="btn btn-outline-primary" href="/edit-client/{{$client->id}}" >Редактировать</a>
                 </th>
                 <th>
-                    <button class="btn btn-danger">Удалить</button>
+                    <a class="btn btn-danger"  href="{{route('delete-client-check',$client->id)}}">Удалить</a>
                 </th>
             </tr>
         @endforeach

@@ -63,7 +63,7 @@
 
     <form action="/add-car/{{$client->id}}/check" method="post">
         @csrf
-        <h5>Добавьте автомобиль для клиента</h5>
+        <h5 class="m-2">Добавьте автомобиль для клиента</h5>
         <input type="text" name="markCar" id="markCar" placeholder="Введите марку"
                class="form-control"><br>
         <input type="text" name="modelCar" id="modelCar" placeholder="Введите модель"

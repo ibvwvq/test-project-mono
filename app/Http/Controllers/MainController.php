@@ -116,4 +116,11 @@ class MainController extends Controller
         $this->add_car($carRequest, $car, $client);
         return redirect()->route('get-clients')->with('Success','ItsOk');
     }
+
+    public function delete_client_check($id)
+    {
+        $client =  DB::table('clients')->where('id', '=', $id)->delete();
+        return redirect()->route('get-clients')->with('Success','ItsOk');
+
+    }
 }
