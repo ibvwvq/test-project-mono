@@ -15,19 +15,17 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string('markCar');
-            $table->string('modelCar');
-            $table->string('colorCar');
-            $table->string('numberCar');
-            $table->boolean('availabilityCar');
+            $table->string('markCar',150)->nullable();
+            $table->string('modelCar',150)->nullable();
+            $table->string('colorCar',150)->nullable();
+            $table->string('numberCar',6)->unique()->nullable();
+            $table->boolean('availabilityCar')->nullable();;
             $table->unsignedBigInteger('client_id')->nullable();
             $table->index('client_id','car_client_idx');
-
             $table->foreign('client_id','car_client_fk')
                 ->on('clients')
                 ->references('id')
                 ->onDelete('cascade');;
-
         });
     }
 

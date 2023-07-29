@@ -6,7 +6,6 @@ use App\Http\Requests\CarRequest;
 use App\Http\Requests\ClientRequest;
 use App\Models\Car;
 use App\Models\Client;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
@@ -28,7 +27,7 @@ class ClientController extends Controller
         $client->addressClient = $clientRequest->input('addressClient');
         $client->save();
         if ($client->save()) {
-            [MainController::class,'add_car']($carRequest, $car, $client);
+            [CarController::class,'add_car']($carRequest, $car, $client);
         }
 
         return redirect()->route('get-clients');
