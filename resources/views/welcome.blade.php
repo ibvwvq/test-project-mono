@@ -5,7 +5,6 @@
 @endsection
 
 
-
 @section('content')
     <a href="/add-client" class="btn btn-primary m-2">Добавить клиента</a>
     <table class="table table-bordered">
@@ -27,7 +26,7 @@
                 <th>{{$client->phoneClient}}</th>
                 <th>{{$client->addressClient}}</th>
                 <th>
-{{--                    <a class="btn btn-outline-primary" href="{{route('edit-client',$client->id)}}" >Редактировать</a>--}}
+                    <a class="btn btn-outline-primary" href="/edit-client/{{$client->id}}" >Редактировать</a>
                 </th>
                 <th>
                     <button class="btn btn-danger">Удалить</button>

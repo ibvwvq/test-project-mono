@@ -22,7 +22,10 @@ Route::get('/add-client', function (){
    return view('/add-client');
 });
 
-
 Route::post('/add-client/check', [MainController::class,'add_client'])->name('add-client');
 
+Route::get('/edit-client/{id}', function ($id){
+    return view('/edit-client');
+});
 
+//Route::post('/edit-client/{id}/check', [MainController::class,'edit_client'])->name('edit-client');

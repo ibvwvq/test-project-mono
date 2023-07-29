@@ -17,7 +17,7 @@ class MainController extends Controller
         return view('welcome', ['clients' => $clients]);
     }
 
-    public function add_client(ClientRequest $clientRequest,CarRequest $carRequest)
+    public function add_client(ClientRequest $clientRequest, CarRequest $carRequest): \Illuminate\Http\RedirectResponse
     {
         $client = new Client();
         $car = new Car();
@@ -27,20 +27,33 @@ class MainController extends Controller
         $client->phoneClient = $clientRequest->input('phoneClient');
         $client->addressClient = $clientRequest->input('addressClient');
         $client->save();
-       if($client->save()){
+        if ($client->save()) {
            $car->markCar = $carRequest->input('markCar');
            $car->modelCar = $carRequest->input('modelCar');
            $car->colorCar = $carRequest->input('colorCar');
            $car->numberCar = $carRequest->input('numberCar');
            if($carRequest->input('availabilityCar')==null){
-               $car->availabilityCar =  0;
-           }else{
-               $car->availabilityCar =  1;
+               $car->availabilityCar = 0;
+           } else {
+               $car->availabilityCar = 1;
            }
-           $car->client_id = $client->id;
-           $car->save();
-       }
+            $car->client_id = $client->id;
+            $car->save();
+        }
 
         return redirect()->route('get-clients');
+    }
+
+    public function edit_client($id, ClientRequest $clientRequest, CarRequest $carRequest)
+    {
+        $client = DB::table('clients')
+            ->where('id', '=', $id)
+            ->first();
+        $cars = DB::table('cars')
+            ->where('client_id', '=', $id)
+            ->paginate(2);
+
+        return view('/edit-client', ['client' => $client,'cars'=>$cars]);
+
     }
 }
