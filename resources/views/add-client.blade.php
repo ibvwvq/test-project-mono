@@ -47,7 +47,6 @@
              <input class="m-2" type="checkbox" id="availabilityCar" name="availabilityCar"><br>
          </p>
 
-
         <button class="btn btn-success m-2" type="submit">Отправить</button>
     </form>
 @endsection

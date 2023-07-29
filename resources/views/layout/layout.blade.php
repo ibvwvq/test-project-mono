@@ -24,6 +24,7 @@
     </ul>
 </header>
 
+
 <div class="container">
     @yield('content')
 </div>

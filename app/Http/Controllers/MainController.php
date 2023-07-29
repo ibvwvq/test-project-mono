@@ -28,23 +28,13 @@ class MainController extends Controller
         $client->addressClient = $clientRequest->input('addressClient');
         $client->save();
         if ($client->save()) {
-           $car->markCar = $carRequest->input('markCar');
-           $car->modelCar = $carRequest->input('modelCar');
-           $car->colorCar = $carRequest->input('colorCar');
-           $car->numberCar = $carRequest->input('numberCar');
-           if($carRequest->input('availabilityCar')==null){
-               $car->availabilityCar = 0;
-           } else {
-               $car->availabilityCar = 1;
-           }
-            $car->client_id = $client->id;
-            $car->save();
+            $this->add_car($carRequest, $car, $client);
         }
 
         return redirect()->route('get-clients');
     }
 
-    public function edit_client($id, ClientRequest $clientRequest, CarRequest $carRequest)
+    public function edit_client($id)
     {
         $client = DB::table('clients')
             ->where('id', '=', $id)
@@ -53,7 +43,77 @@ class MainController extends Controller
             ->where('client_id', '=', $id)
             ->paginate(2);
 
-        return view('/edit-client', ['client' => $client,'cars'=>$cars]);
+        return view('edit-client', ['client' => $client, 'cars' => $cars]);
+    }
 
+    public function edit_client_check($id,ClientRequest $clientRequest)
+    {
+        $client = DB::table('clients')
+            ->where('id', '=', $id)
+            ->update([
+                'fioClient' => $clientRequest->input('fioClient'),
+                'genderClient' => $clientRequest->input('genderClient'),
+                'phoneClient' => $clientRequest->input('phoneClient'),
+                'addressClient' => $clientRequest->input('addressClient')]);
+
+        return redirect()->route('get-clients')->with('Success','ItsOk');
+    }
+
+    public function edit_car_check($id,CarRequest $carRequest)
+    {
+        if ($carRequest->input('availabilityCar') == null) {
+             DB::table('cars')
+                ->where('id', '=', $id)
+                ->update([
+                    'availabilityCar' => 0,
+                ]);
+        } else {
+             DB::table('cars')
+                ->where('id', '=', $id)
+                ->update([
+                    'availabilityCar' => 1,
+                ]);
+        }
+            DB::table('cars')
+            ->where('id', '=', $id)
+            ->update([
+                'markCar' => $carRequest->input('markCar'),
+                'modelCar' => $carRequest->input('modelCar'),
+                'colorCar' => $carRequest->input('colorCar'),
+                'numberCar' => $carRequest->input('numberCar'),
+            ]);
+
+        return redirect()->route('get-clients')->with('Success','ItsOk');
+    }
+    /**
+     * @param CarRequest $carRequest
+     * @param Car $car
+     * @param $client
+     * @return void
+     */
+    public function add_car(CarRequest $carRequest, Car $car, $client): void
+    {
+        $car->markCar = $carRequest->input('markCar');
+        $car->modelCar = $carRequest->input('modelCar');
+        $car->colorCar = $carRequest->input('colorCar');
+        $car->numberCar = $carRequest->input('numberCar');
+        if ($carRequest->input('availabilityCar') == null) {
+            $car->availabilityCar = 0;
+        } else {
+            $car->availabilityCar = 1;
+        }
+        $car->client_id = $client->id;
+        $car->save();
+    }
+
+    public function add_car_check($id,CarRequest $carRequest){
+        $car = new Car();
+
+        $client = DB::table('clients')
+            ->where('id', '=', $id)
+            ->first();
+
+        $this->add_car($carRequest, $car, $client);
+        return redirect()->route('get-clients')->with('Success','ItsOk');
     }
 }

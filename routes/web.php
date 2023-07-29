@@ -24,8 +24,11 @@ Route::get('/add-client', function (){
 
 Route::post('/add-client/check', [MainController::class,'add_client'])->name('add-client');
 
-Route::get('/edit-client/{id}', function ($id){
-    return view('/edit-client');
-});
+Route::get('/edit-client/{id}', [MainController::class,'edit_client'])->name('edit-client');
 
-//Route::post('/edit-client/{id}/check', [MainController::class,'edit_client'])->name('edit-client');
+Route::post('/edit-client/{id}/check', [MainController::class,'edit_client_check'])->name('edit-client-check');
+
+Route::post('/edit-car/{id}/check', [MainController::class,'edit_car_check'])->name('edit-car-check');
+
+Route::post('/add-car/{id}/check', [MainController::class,'add_car_check'])->name('add-car-check');
+
