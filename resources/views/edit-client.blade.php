@@ -40,7 +40,7 @@
                    class="form-control" value="{{$car->modelCar}}"><br>
             <input type="text" name="colorCar" id="colorCar" placeholder="Введите цвет"
                    class="form-control" value="{{$car->colorCar}}"><br>
-            <input type="text" name="numberCar" id="phoneClient" placeholder="Введите гос. номер"
+            <input type="text" name="numberCar" id="numberCar" placeholder="Введите гос. номер"
                    class="form-control" value="{{$car->numberCar}}"><br>
             @if($car->availabilityCar)
                 <input class="m-2" type="checkbox" id="availabilityCar" name="availabilityCar" checked=checked><br>

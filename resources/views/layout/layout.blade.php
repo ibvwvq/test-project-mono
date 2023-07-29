@@ -30,11 +30,20 @@
 <script src="https://unpkg.com/imask"></script>
 
 <script>
-    const element = document.getElementById('phoneClient');
-    const maskOptions = {
+    const phoneClient = document.getElementById('phoneClient');
+    const numberCar = document.getElementById('numberCar');
+
+    const maskOptionsPhone = {
         mask: '+{7}(000)000-00-00',
         lazy: true
     };
-    const mask = new IMask(element, maskOptions);
+    const maskOptionsNumber = {
+        mask: 'a000aa',
+        // A333AA
+        lazy: true
+    };
+    const maskPhoneClient = new IMask(phoneClient, maskOptionsPhone);
+    const maskNumberCar = new IMask(numberCar, maskOptionsNumber);
+
 </script>
 
