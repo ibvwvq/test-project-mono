@@ -34,8 +34,8 @@
     const numberCar = document.getElementById('numberCar');
 
     const maskOptionsPhone = {
-        mask: '+{7}(000)000-00-00',
-        lazy: true
+        mask: '+{7}0000000000',
+        lazy: false
     };
     const maskOptionsNumber = {
         mask: 'a000aa',
