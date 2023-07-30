@@ -12,7 +12,7 @@ class ClientController extends Controller
 {
     public function get_clients()
     {
-        $clients = DB::table('clients')->paginate(3);
+        $clients = DB::table('clients')->paginate(8);
         return view('welcome', ['clients' => $clients]);
     }
 
